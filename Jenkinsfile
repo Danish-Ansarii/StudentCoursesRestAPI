@@ -1,11 +1,11 @@
 pipelines{
     agent { labels 'docker'}
-    triggers { cron('* * * * *') }
+    triggers { pollSCM('* 23 * * 1-5') }
     stages{
         stage{
             step('vcs'){
                 git url: https://github.com/Danish-Ansarii/StudentCoursesRestAPI.git,
-                    branch: develop
+                    branch: sprint-1-release
             }
         }
         stage{
